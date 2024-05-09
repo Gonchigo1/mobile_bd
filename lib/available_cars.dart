@@ -16,7 +16,7 @@ class _AvailableCarsState extends State <AvailableCars>{
       body: SafeArea(
         child: Container(
           width: double.infinity,
-          padding: EdgeInsets.all(16),
+          padding:const  EdgeInsets.all(16),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -30,7 +30,7 @@ class _AvailableCarsState extends State <AvailableCars>{
                   height: 45,
                   decoration: BoxDecoration(
                     color: Colors.white,
-                    borderRadius: BorderRadius.all(
+                    borderRadius: const BorderRadius.all(
                       Radius.circular(15),
                     ),
                     border: Border.all (
@@ -38,7 +38,7 @@ class _AvailableCarsState extends State <AvailableCars>{
                       width: 1,
                     ),
                   ),
-                  child: Icon (
+                  child: const Icon (
                     Icons.keyboard_arrow_left,
                     color: Colors.black,
                     size: 28,
@@ -47,11 +47,11 @@ class _AvailableCarsState extends State <AvailableCars>{
               ),
 
 
-              SizedBox(
+              const SizedBox(
                 height: 16,
               ),
 
-              Text(
+              const Text(
                 "Үнэлгээний зарууд",
                 style: TextStyle(
                   color: Colors.black,
@@ -60,14 +60,14 @@ class _AvailableCarsState extends State <AvailableCars>{
                 ),
               ),
 
-              SizedBox(
+            const   SizedBox(
                 height: 15,
               ),
 
               Expanded(
                 child: GridView.count(
-                  physics: BouncingScrollPhysics(),
-                  childAspectRatio: 1/1.25,
+                  physics:const  BouncingScrollPhysics(),
+                  childAspectRatio: 1/1.3,
                   crossAxisCount: 2,
                   crossAxisSpacing: 15,
                   mainAxisSpacing: 30,

@@ -1,26 +1,40 @@
-import 'dart:js_interop';
+// import 'dart:js_interop';
 
 import 'package:bd1/data.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 
 Widget buildCar(Car car, int index){
   return Container(
-    decoration: BoxDecoration(
-      color: Colors.white,
+    decoration: const BoxDecoration(
+      color: Color.fromARGB(255, 180, 178, 178),
       borderRadius: BorderRadius.all(Radius.circular(15),
       ),
     ),
-    padding: EdgeInsets.all(16),
-    margin: EdgeInsets.only(right: index != null ? 16:0, left: index == 0 ? 16:0) ,
-    width: 220,
+    padding: const EdgeInsets.all(16),
+    // margin: EdgeInsets.only(right: 16, left: index == 0 ? 16 : 0),
+    // width: 220,
     child: Column(
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
-
-        Align(
+      
+      Stack(
+        children: [
+        
+          Container(color: Color.fromARGB(255, 117, 116, 114),
+            height: 100,
+            child: Center(
+              child: Image.asset(
+                'assets/${car.images[0]}',
+                fit: BoxFit.cover,
+                alignment: Alignment.topCenter,
+              ),
+            ),
+          ),
+            Align(
           alignment: Alignment.centerRight,
           child: Container(
-            decoration: BoxDecoration(
+            decoration: const BoxDecoration(
               color: Colors.blue,
               borderRadius: BorderRadius.all(
                 Radius.circular(15),
@@ -30,8 +44,8 @@ Widget buildCar(Car car, int index){
               padding: EdgeInsets.symmetric(horizontal: 8, vertical: 4),
               child: Text(
                 car.condition,
-                style: TextStyle(
-                  color: Colors.white,
+                style:const  TextStyle(
+                  color: Color.fromARGB(255, 252, 247, 247),
                   fontSize: 10,
                   fontWeight: FontWeight.bold,
                 ),
@@ -39,23 +53,11 @@ Widget buildCar(Car car, int index){
             ),
           ),
         ),
-
-      SizedBox(
-        height: 8 ,
-        ),
-
-      Container(
-        height: 120,
-        child: Center(
-          child: Image.asset(
-            car.images[0],
-            fit: BoxFit.fitWidth,
-          ),
-        ),
+        ],
       ),
 
-      SizedBox(
-        height: 20 ,
+     const  SizedBox(
+        height: 20 
         ),
 
       Text(
@@ -64,13 +66,13 @@ Widget buildCar(Car car, int index){
       ),
 
 
-      SizedBox(
+     const SizedBox(
         height: 8 ,
         ),
 
       Text(
         car.model,
-        style: TextStyle(
+        style: const TextStyle(
           fontSize: 22,
           fontWeight: FontWeight.bold,
           height: 1,
@@ -79,9 +81,9 @@ Widget buildCar(Car car, int index){
 
       Text(
         (car.condition == "Daily" ? "Өдрийн" : car.condition == "Weekly" ? "Долоо хоногийн" : "Сарын") + " өмнө",
-        style: TextStyle(
+        style: const TextStyle(
           fontSize: 10,
-          color: Colors.grey,
+          color: Color.fromARGB(255, 0, 0, 0),
         ),
       ),
 

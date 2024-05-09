@@ -1,6 +1,5 @@
 import 'package:bd1/main.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 class ProfilePage extends StatefulWidget {
 
@@ -25,7 +24,7 @@ class _ProfilePageState extends State<ProfilePage>  {
         title: Transform(
           // you can forcefully translate values left side using Transform
           transform: Matrix4.translationValues(-5.0, 0.0, 0.0),
-          child: Text(
+          child: const Text(
             "Хэрэглэгчийн мэдээлэл",
             style: TextStyle(
               fontSize: 20,
@@ -34,7 +33,7 @@ class _ProfilePageState extends State<ProfilePage>  {
           ),
         ),
       ),
-      body: Center(
+      body: const Center(
         
         child: Column( 
           mainAxisAlignment: MainAxisAlignment.center,
@@ -55,10 +54,10 @@ class _ProfilePageState extends State<ProfilePage>  {
         child: Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-                Text('Гарах'),
+               const Text('Гарах'),
 
             IconButton(
-              icon: Icon(Icons.login),
+              icon: const Icon(Icons.login),
               onPressed: () {
                 Navigator.push(
                   context,

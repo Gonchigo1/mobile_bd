@@ -27,24 +27,24 @@ class selbegPage extends StatelessWidget {
           children: [
 
             Container(
-            padding: EdgeInsets.only(bottom: 10),
+            padding: const EdgeInsets.only(bottom: 10),
             child: Padding(
-              padding: EdgeInsets.only(top: 5, right: 16, left: 16, bottom: 16),
+              padding: const EdgeInsets.only(top: 5, right: 16, left: 16, bottom: 16),
               child: TextField(
                 decoration: InputDecoration(
                   hintText: "Сэлбэг хайх",
-                  hintStyle: TextStyle(fontSize: 14),
+                  hintStyle: const TextStyle(fontSize: 14),
                   border: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(15),
-                    borderSide: BorderSide(
+                    borderSide:const  BorderSide(
                       width: 0,
                       style: BorderStyle.none,
                     )
                   ),
                   filled: true,
                   fillColor: Colors.grey[100],
-                  contentPadding: EdgeInsets.only(left: 30),
-                  suffixIcon: Padding(
+                  contentPadding:const  EdgeInsets.only(left: 30),
+                  suffixIcon: const Padding(
                     padding: EdgeInsets.only(right: 24, left: 16),
                     child: Icon(
                       Icons.search,
@@ -60,11 +60,14 @@ class selbegPage extends StatelessWidget {
 
           Expanded(
                 child: GridView.count(
-                  physics: BouncingScrollPhysics(),
-                  childAspectRatio: 1/1.25,
+                  padding: EdgeInsets.all(24.0),
+                  physics: const BouncingScrollPhysics(),
+                  // childAspectRatio: 1/1.25,
+                  childAspectRatio: 100 / 140,
                   crossAxisCount: 2,
                   crossAxisSpacing: 15,
                   mainAxisSpacing: 30,
+                  
                   children: getCarList().map((item){
                     return GestureDetector(
                       onTap: () {
@@ -88,7 +91,7 @@ class selbegPage extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
            IconButton(
-        icon: Icon(Icons.home),
+        icon:const Icon(Icons.home),
         onPressed: () {
           Navigator.push(
             context,
@@ -97,7 +100,8 @@ class selbegPage extends StatelessWidget {
         },
       ),
       IconButton(
-              icon: Icon(Icons.directions_car),
+              icon: const Icon(Icons.settings),
+              iconSize: 40,
               color: Colors.blue,
 
               onPressed: () {
@@ -109,16 +113,16 @@ class selbegPage extends StatelessWidget {
             ),
 
            IconButton(
-              icon: Icon(Icons.task),
+              icon:const Icon(Icons.local_offer),
               onPressed: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => zarPage()),
+                  MaterialPageRoute(builder: (context) => ZarPage()),
                 );
               },
             ),
             IconButton(
-              icon: Icon(Icons.shopping_bag), 
+              icon: const Icon(Icons.shopping_cart),
 
               onPressed: () {
                 Navigator.push(context, 
@@ -127,7 +131,7 @@ class selbegPage extends StatelessWidget {
               },
             ),
              IconButton(
-              icon: Icon(Icons.person),
+              icon: const Icon(Icons.account_box),
               onPressed: () {
                 Navigator.push(
                   context,

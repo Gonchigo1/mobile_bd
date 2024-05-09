@@ -46,7 +46,7 @@ List<Car> getCarList(){
       "Суудлын машин",
       2017,
       "Саарал",
-      "Daily",
+      "Үнэлэгдсэн",
       [
         "images/Mpackage1.jpg",
         "images/Mpackage2.jpg",
@@ -58,7 +58,7 @@ List<Car> getCarList(){
       "Суудлын машин",
       2012,
       "Цагаан",
-      "Weekly",
+      "Үнэлэгдсэн",
       [
         "images/NV200_1.jpg",
         "images/NV200_2.jpg",
@@ -71,7 +71,7 @@ List<Car> getCarList(){
       "Суудлын машин",
       2023,
       "Хар",
-      "Monthly",
+      "Үнэлэгдсэн",
       [
         "images/Xle_1.png",
         "images/Xle_2.jpg",
@@ -85,7 +85,7 @@ List<Car> getCarList(){
       "Суудлын машин",
       2022,
       "Цагаан",
-      "Monthly",
+      "Үнэлэгдсэн",
       [
         "images/SE_1.jpg",
         "images/SE_2.jpg",
@@ -98,7 +98,7 @@ List<Car> getCarList(){
       "Суудлын машин",
       2012,
       "Хар",
-      "Monthly",
+      "Үнэлэгдсэн",
       [
         "images/santa4.jpg",
         "images/Sante1.jpg",

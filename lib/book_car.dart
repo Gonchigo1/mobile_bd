@@ -26,13 +26,13 @@ class _BookCarState extends State <BookCar>{
 
   Widget buildIndicator (bool isActive){
     return AnimatedContainer(
-      duration: Duration(milliseconds: 150),
+      duration: const Duration(milliseconds: 150),
       margin: EdgeInsets.symmetric(horizontal: 6),
       height: 8,
       width: isActive ? 20 : 8,
       decoration: BoxDecoration( 
         color: isActive ? Colors.black : Colors.grey[400],
-        borderRadius: BorderRadius.all( 
+        borderRadius: const BorderRadius.all( 
           Radius.circular(12),
         ),
       ),
@@ -53,13 +53,13 @@ class _BookCarState extends State <BookCar>{
 
               Expanded(
                 child: Container(
-                  padding: EdgeInsets.symmetric(vertical: 16),
+                  padding: const EdgeInsets.symmetric(vertical: 16),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                         
                       Container(
-                        padding: EdgeInsets.symmetric(horizontal: 16),
+                        padding: const EdgeInsets.symmetric(horizontal: 16),
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
@@ -72,7 +72,7 @@ class _BookCarState extends State <BookCar>{
                                 height: 45,
                                 decoration: BoxDecoration(
                                   color: Colors.white,
-                                  borderRadius: BorderRadius.all(
+                                  borderRadius: const BorderRadius.all(
                                     Radius.circular(15),
                                   ),
                                   border: Border.all (
@@ -80,7 +80,7 @@ class _BookCarState extends State <BookCar>{
                                     width: 1,
                                   ),
                                 ),
-                                child: Icon (
+                                child: const Icon (
                                   Icons.keyboard_arrow_left,
                                   color: Colors.black,
                                   size: 28,
@@ -94,13 +94,13 @@ class _BookCarState extends State <BookCar>{
                                 Container(
                                 width: 45,
                                 height: 45,
-                                decoration: BoxDecoration(
+                                decoration: const BoxDecoration(
                                   color: Colors.blue,
                                   borderRadius: BorderRadius.all(
                                     Radius.circular(15),
                                   ),
                                 ),
-                                child: Icon (
+                                child: const Icon (
                                   Icons.bookmark_border,
                                   color: Colors.white,
                                   size: 22,
@@ -114,15 +114,15 @@ class _BookCarState extends State <BookCar>{
                         ),
                         ),
 
-                        SizedBox(
+                        const SizedBox(
                           height: 16,
                         ),
                         
                         Padding(
-                          padding: EdgeInsets.symmetric(horizontal: 16),
+                          padding: const EdgeInsets.symmetric(horizontal: 16),
                           child: Text(
                             widget.car.model,
-                            style: TextStyle(
+                            style: const TextStyle(
                               color: Colors.black,
                               fontSize: 36,
                               fontWeight: FontWeight.bold,
@@ -131,15 +131,15 @@ class _BookCarState extends State <BookCar>{
                           ),
 
 
-                        SizedBox(
+                        const SizedBox(
                           height: 8,
                         ),
                         
                         Padding(
-                          padding: EdgeInsets.symmetric(horizontal: 16),
+                          padding:const EdgeInsets.symmetric(horizontal: 16),
                           child: Text(
                             widget.car.brand,
-                            style: TextStyle(
+                            style: const TextStyle(
                               color: Colors.grey,
                               fontSize: 14,
                             ),
@@ -149,14 +149,14 @@ class _BookCarState extends State <BookCar>{
 
 
                         // Zurag
-                        SizedBox(
-                          height: 8,
+                        const SizedBox(
+                          height: 5,
                         ),
 
                         Expanded(
                           child: Container(
                             child: PageView(
-                              physics: BouncingScrollPhysics(),
+                              physics: const BouncingScrollPhysics(),
                               onPageChanged: (int page){
                                 setState(() {
                                   _currentImage = page;
@@ -164,7 +164,7 @@ class _BookCarState extends State <BookCar>{
                               },
                               children: widget.car.images.map((path){
                                 return Container(
-                                  padding: EdgeInsets.symmetric(horizontal: 16),
+                                  padding:const  EdgeInsets.symmetric(horizontal: 16),
                                   child: Image.asset(
                                     path,
                                     fit: BoxFit.scaleDown,
@@ -177,7 +177,7 @@ class _BookCarState extends State <BookCar>{
 
                     widget.car.images.length > 1 
                     ? Container (
-                      margin: EdgeInsets.symmetric(vertical: 16,),
+                      margin: const EdgeInsets.symmetric(vertical: 16,),
                       height: 30,
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.center,
@@ -193,7 +193,7 @@ class _BookCarState extends State <BookCar>{
               Container(
                 decoration: BoxDecoration(
                   color: Colors.grey[100],
-                  borderRadius: BorderRadius.only( 
+                  borderRadius: const BorderRadius.only( 
                     topLeft: Radius.circular(30),
                     topRight: Radius.circular(30),
                   ),
@@ -203,23 +203,23 @@ class _BookCarState extends State <BookCar>{
                   children: [
 
                     Padding(
-                      padding: EdgeInsets.only(top: 16, left: 16, right: 16 ),
+                      padding: const EdgeInsets.only(top: 16, left: 16, right: 16 ),
                       child: Text(
                         "Машины мэдээлэл",
                         style: TextStyle(
                           fontSize: 20,
                           fontWeight: FontWeight.bold,
-                          color: Colors.grey[600],
+                          color: const Color.fromARGB(255, 0, 0, 0),
                         ),
                       ),
                     ),
 
                     Container(
-                      height: 80,
-                      padding: EdgeInsets.only(top: 8, left: 16,),
-                      margin: EdgeInsets.only(bottom: 16),
+                      height: 100,
+                      padding:const  EdgeInsets.only(top: 5, left: 10,),
+                      margin: const EdgeInsets.only(bottom: 19),
                       child: ListView(
-                        physics: BouncingScrollPhysics(),
+                        physics: const BouncingScrollPhysics(),
                         scrollDirection: Axis.horizontal,
                         children: [
                           buildSpecificationCar("Үйлдвэрлэгч", "BMW"),
@@ -242,14 +242,14 @@ class _BookCarState extends State <BookCar>{
         //Uniin medeelel
         bottomNavigationBar: Container(
         height: 90,
-        padding: EdgeInsets.all(16),
-        decoration: BoxDecoration(
+        padding:const EdgeInsets.all(16),
+        decoration: const BoxDecoration(
           color: Colors.white,
         ),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            Column(
+            const Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
@@ -286,13 +286,13 @@ class _BookCarState extends State <BookCar>{
             ),
             Container(
               height: 50,
-              decoration: BoxDecoration(
+              decoration: const BoxDecoration(
                 color: Colors.blue,
                 borderRadius: BorderRadius.all(
                   Radius.circular(15),
                 ),
               ),
-              child: Center(
+              child: const Center(
                 child: Padding(
                   padding: EdgeInsets.symmetric(horizontal: 24),
                   child: Text(
@@ -317,14 +317,14 @@ class _BookCarState extends State <BookCar>{
   Widget buildSpecificationCar(String title, String data){
     return Container(
       width: 150,
-      decoration: BoxDecoration(
+      decoration:const  BoxDecoration(
         color: Colors.white,
         borderRadius: BorderRadius.all(
           Radius.circular(15),
         ),
       ),
-      padding: EdgeInsets.symmetric(vertical: 8, horizontal: 16,),
-      margin: EdgeInsets.only(right: 16),
+      padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 16,),
+      margin: const EdgeInsets.only(right: 16),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         mainAxisAlignment: MainAxisAlignment.center,
@@ -332,19 +332,19 @@ class _BookCarState extends State <BookCar>{
 
           Text(
             title,
-            style: TextStyle(
+            style:const  TextStyle(
               color: Colors.grey,
               fontSize: 14,
             ),
           ),
 
-          SizedBox(
+         const SizedBox(
             height: 8,
           ),
 
           Text(
             data,
-            style: TextStyle(
+            style:const TextStyle(
               color: Colors.black,
               fontSize: 18,
               fontWeight: FontWeight.bold,

@@ -1,17 +1,19 @@
+import 'package:flutter/material.dart';
 import 'package:bd1/basket.dart';
 import 'package:bd1/home.dart';
 import 'package:bd1/profile.dart';
 import 'package:bd1/selbeg.dart';
-import 'package:flutter/material.dart';
 
-class zarPage extends StatelessWidget {
+class ZarPage extends StatelessWidget {
+  const ZarPage({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Таны зар"),
+        title: const Text("Таны зар"),
       ),
-      body: Center(
+      body: const Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
@@ -23,7 +25,6 @@ class zarPage extends StatelessWidget {
                 fontWeight: FontWeight.bold,
               ),
             ),
-           
           ],
         ),
       ),
@@ -31,36 +32,32 @@ class zarPage extends StatelessWidget {
         child: Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-           IconButton(
-  icon: Icon(Icons.home),
-  onPressed: () {
-    Navigator.push(
-      context,
-      MaterialPageRoute(builder: (context) => HomePage()),
-    );
-  },
-),
-
-            
             IconButton(
-              icon: Icon(Icons.directions_car), 
-
+              icon: const Icon(Icons.home),
               onPressed: () {
-                Navigator.push(context, 
-                MaterialPageRoute(builder: (context) => selbegPage()),
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => HomePage()),
                 );
               },
             ),
             IconButton(
-              icon: Icon(Icons.task), 
-                            color: Colors.blue,
-
+              icon: const Icon(Icons.settings),
               onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => selbegPage()),
+                );
               },
-              
             ),
             IconButton(
-              icon: Icon(Icons.shopping_bag),
+              icon:const Icon(Icons.local_offer),
+              iconSize: 40,
+              color: Colors.blue,
+              onPressed: () {},
+            ),
+            IconButton(
+              icon: const Icon(Icons.shopping_cart),
               onPressed: () {
                 Navigator.push(
                   context,
@@ -69,7 +66,7 @@ class zarPage extends StatelessWidget {
               },
             ),
             IconButton(
-              icon: Icon(Icons.person),
+              icon: const Icon(Icons.account_box),
               onPressed: () {
                 Navigator.push(
                   context,
@@ -77,7 +74,6 @@ class zarPage extends StatelessWidget {
                 );
               },
             ),
-
           ],
         ),
       ),

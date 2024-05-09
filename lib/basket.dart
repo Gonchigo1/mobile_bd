@@ -9,14 +9,14 @@ class basketPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Таны сагс"),
+        title: const Text("Таны сагс"),
       ),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            SizedBox(height: 20),
-            Text(
+            const SizedBox(height: 20),
+            const Text(
               'Таны сагс хоосон байна',
               style: TextStyle(
                 fontSize: 20,
@@ -32,7 +32,7 @@ class basketPage extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
            IconButton(
-  icon: Icon(Icons.home),
+  icon: const Icon(Icons.home),
   onPressed: () {
     Navigator.push(
       context,
@@ -41,7 +41,7 @@ class basketPage extends StatelessWidget {
   },
 ),
  IconButton(
-              icon: Icon(Icons.directions_car),
+              icon: const Icon(Icons.settings),
               onPressed: () {
                 Navigator.push(
                   context,
@@ -51,18 +51,19 @@ class basketPage extends StatelessWidget {
             ),
 
             IconButton(
-              icon: Icon(Icons.task), 
+              icon:const Icon(Icons.local_offer),
               onPressed: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => zarPage()),
+                  MaterialPageRoute(builder: (context) => ZarPage()),
                 );
               },
               
             ),
             
             IconButton(
-              icon: Icon(Icons.shopping_bag), 
+              icon: const Icon(Icons.shopping_cart),
+              iconSize: 40,
                             color: Colors.blue,
               onPressed: () {
               },
@@ -70,7 +71,7 @@ class basketPage extends StatelessWidget {
             ),
 
             IconButton(
-              icon: Icon(Icons.person),
+              icon: const Icon(Icons.account_box),
               onPressed: () {
                 Navigator.push(
                   context,

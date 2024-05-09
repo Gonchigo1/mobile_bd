@@ -1,45 +1,38 @@
+import 'package:flutter/material.dart';
 import 'package:bd1/available_cars.dart';
 import 'package:bd1/book_car.dart';
 import 'package:bd1/car_widget.dart';
 import 'package:bd1/data.dart';
-import 'package:flutter/material.dart';
+import 'package:bd1/unelgee.dart';
 import 'package:bd1/basket.dart';
 import 'package:bd1/profile.dart';
 import 'package:bd1/selbeg.dart';
 import 'package:bd1/zar.dart';
-import 'package:firebase_auth/firebase_auth.dart';
-import 'package:firebase_core/firebase_core.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
 
-FirebaseAuth auth = FirebaseAuth.instance;
-FirebaseFirestore firestore = FirebaseFirestore.instance;
 class HomePage extends StatefulWidget {
-
-  @override 
+  @override
   _HomepageState createState() => _HomepageState();
 }
 
-class _HomepageState extends State<HomePage>
-{
-
+class _HomepageState extends State<HomePage> {
   List<Car> cars = getCarList();
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: Color.fromARGB(255, 255, 255, 255),
       appBar: AppBar(
         centerTitle: false,
         titleSpacing: 0.0,
         elevation: 10,
         leading: Container(
-          padding: EdgeInsets.only(left: 20, top: 3, bottom: 3),
+          padding: const EdgeInsets.only(left: 20, top: 3, bottom: 3),
           child: Image.asset('assets/profile.png'),
         ),
         title: Transform(
           transform: Matrix4.translationValues(15.0, 0.0, 0.0),
-          child: Text(
-            "Сайн байна уу?\n   Дуламсүрэн",
+          child: const Text(
+            "Сайн байна уу?\n   Гончигдорж",
             style: TextStyle(
               fontSize: 15,
               color: const Color.fromARGB(255, 0, 0, 0),
@@ -50,7 +43,7 @@ class _HomepageState extends State<HomePage>
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 5),
             child: IconButton(
-              icon: Icon(Icons.search),
+              icon: const Icon(Icons.search),
               onPressed: () {
                 // Perform search action here
               },
@@ -58,14 +51,11 @@ class _HomepageState extends State<HomePage>
           ),
         ],
       ),
-
-      
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
-
-          SizedBox(height: 5,),
-          Padding(
+          const SizedBox(height: 5,),
+          const Padding(
             padding: EdgeInsets.only(top: 10, left: 20),
             child: Text(
               "Автомашин хайх",
@@ -75,26 +65,25 @@ class _HomepageState extends State<HomePage>
               ),
             ),
           ),
-
           Container(
-            padding: EdgeInsets.only(bottom: 10),
+            padding: const EdgeInsets.only(bottom: 10),
             child: Padding(
-              padding: EdgeInsets.only(top: 5, right: 16, left: 16, bottom: 16),
+              padding: const EdgeInsets.only(top: 5, right: 16, left: 16, bottom: 16),
               child: TextField(
                 decoration: InputDecoration(
                   hintText: "Хайх",
-                  hintStyle: TextStyle(fontSize: 14),
+                  hintStyle: const TextStyle(fontSize: 14),
                   border: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(15),
-                    borderSide: BorderSide(
+                    borderSide: const BorderSide(
                       width: 0,
                       style: BorderStyle.none,
                     )
                   ),
                   filled: true,
                   fillColor: Colors.grey[100],
-                  contentPadding: EdgeInsets.only(left: 30),
-                  suffixIcon: Padding(
+                  contentPadding: const EdgeInsets.only(left: 30),
+                  suffixIcon: const Padding(
                     padding: EdgeInsets.only(right: 24, left: 16),
                     child: Icon(
                       Icons.search,
@@ -106,163 +95,128 @@ class _HomepageState extends State<HomePage>
               ),
             ),
           ),
-
-        
-        Expanded(
-          child: SingleChildScrollView(
-            physics: BouncingScrollPhysics(),
-            child: Container(
-              decoration: BoxDecoration(
-                color: Colors.grey[100],
-                borderRadius: BorderRadius.only (
-                  topLeft: Radius.circular(30),
-                  topRight: Radius.circular(30) ,
-                  ),
-              ),
-              child: Column(
-                children: [
-                  
-                  Padding(
-                    padding: EdgeInsets.all(16),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        
-                        Text(
-                          "Үнэлгээний зар",
-                          style: TextStyle(
-                            fontSize: 15,
-                            fontWeight: FontWeight.bold,
-                            color: Colors.grey[800],
-                          )  ,                        
-                        ),
-
-
-                        GestureDetector(
-                          onTap: () {
-                          Navigator.push (
-                            context,
-                            MaterialPageRoute(builder: (context) => AvailableCars())
-                          );
-                        },
-
-
-                        child: Row(
-                            children: [
-                              Text(
-                                'бүгдийг үзэх',
-                              style: TextStyle(
-                              fontSize: 10,
-                              fontWeight: FontWeight.bold,
-                              color: Colors.blue,
-                            ) ,
-                            ),
-
-                        SizedBox(width: 8),
-
-                        Icon(
-                          Icons.arrow_forward_ios,
-                          size:12,
-                          color: Colors.blue,
-                        ),
-                    
-                        ],
-                        ),
-                        ),
-
-                      ],
-                    ),
-
-                  ),
-
-                Container(
-                  height: 280,
-                  child: ListView(
-                    physics: BouncingScrollPhysics(),
-                    scrollDirection: Axis.horizontal,
-                    children: buildDeals(),
+          Expanded(
+            child: SingleChildScrollView(
+              physics: const BouncingScrollPhysics(),
+              child: Container(
+                decoration: const BoxDecoration(
+                  color: Color.fromARGB(255, 159, 159, 159),
+                  borderRadius: const BorderRadius.only (
+                    topLeft: Radius.circular(30),
+                    topRight: Radius.circular(30) ,
                   ),
                 ),
+                child: Column(
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.all(16),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                         const Text(
+                            "Үнэлгээний зар",
+                            style: TextStyle(
+                              fontSize: 20,
+                              fontWeight: FontWeight.bold,
+                              color: const Color.fromARGB(255, 0, 0, 0),
+                            ),
+                          ),
+                          GestureDetector(
+                            onTap: () {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(builder: (context) => AvailableCars())
+                              );
+                            },
+                            child: const Row(
+                              children: [
+                                Text(
+                                  'бүгдийг үзэх',
+                                  style: TextStyle(
+                                    fontSize: 15,
+                                    fontWeight: FontWeight.bold,
+                                    color: Color.fromARGB(255, 0, 0, 0),
+                                  ),
+                                ),
+                                SizedBox(width: 8),
+                                Icon(
+                                  Icons.arrow_forward_ios,
+                                  size:12,
+                                  color: Colors.blue,
+                                ),
+                              ],
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                   Container(
+                          height: 280,
+                          color: Color.fromARGB(255, 255, 0, 0),
+                          child: ListView(
+                            physics: const BouncingScrollPhysics(),
+                            scrollDirection: Axis.horizontal,
+                            children: [
+                              ...buildDeals(),
+                              Container(
+                                width: 200,
+                                child: Image.asset('assets/images/Mpackage1.jpg'),
+                              ),
+                            ],
+                          ),
+),
 
-                GestureDetector(
-                  onTap: () async {
-                  print('asdd');
-                  User? user = auth.currentUser;
-                  String userId = user!.uid;
-                  DocumentSnapshot userData = await firestore.collection('users').doc(userId).get();
-                  if (userData.exists) {
-                      // User data found
-                      var data = userData.data();
-                      print("user data ::: " + data.toString());
-                      // Do something with data
-                    } else {
-                      // User data not found
-                    }
-                    return;
-                    Navigator.push (
-                      context,
-                      MaterialPageRoute(builder: (context) => AvailableCars())
-                    );
-                  },
 
-
-                child: Padding(
-                    padding:  EdgeInsets.only(top: 16, right: 16, left: 16),
-                    child: Container(
-                      decoration: BoxDecoration(
-                        color: Colors.blue,
+                    Container(
+                      decoration: const BoxDecoration(
+                        color: Color.fromARGB(255, 37, 8, 255),
                         borderRadius: BorderRadius.all(
                           Radius.circular(15),
                         ),
                       ),
                       padding: EdgeInsets.all(15),
                       height: 50,
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                  
-                          Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            
-                            children: [
-                  
+                      child: GestureDetector(
+                        onTap: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(builder: (context) => UnelgeePage()),
+                          );
+                        },
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                          const  Column(
+                              crossAxisAlignment: CrossAxisAlignment.center,
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
                                 Text(
                                   "Авто машинаа үнэлүүлэх",
                                   style: TextStyle(
                                     fontSize: 12,
                                     fontWeight: FontWeight.bold,
-                                    color: Colors.white,
+                                    color: Color.fromARGB(255, 255, 255, 255),
                                   ),
                                 ),
-                                 ],
+                              ],
                             ),
-                  
-                                Container(
-                                    child: Icon(
-                                      Icons.arrow_forward_ios,
-                                      color: Colors.white,
-                                    )
-                                  ),
-                               
-                        ],
-                  
+                           Container(
+                              child:const Icon(
+                                Icons.arrow_forward_ios,
+                                color: Color.fromARGB(255, 255, 255, 255),
+                              ),
+                            ),
+                          ],
+                        ),
                       ),
                     ),
-                  ),
+                  ],
                 ),
-
-                ],
               ),
-
             ),
-          )
-          
-        )
-        
+          ),
         ],
       ),
-      
       bottomNavigationBar: BottomAppBar(
         child: Row(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -272,14 +226,14 @@ class _HomepageState extends State<HomePage>
               children: <Widget>[
                 IconButton(
                   icon: Icon(Icons.home),
+                  iconSize: 40, 
                   color: Colors.blue,
                   onPressed: () {},
                 ),
-              
               ],
             ),
             IconButton(
-              icon: Icon(Icons.directions_car),
+              icon: const Icon(Icons.settings),
               onPressed: () {
                 Navigator.push(
                   context,
@@ -288,16 +242,16 @@ class _HomepageState extends State<HomePage>
               },
             ),
             IconButton(
-              icon: Icon(Icons.task),
+              icon: const Icon(Icons.local_offer),
               onPressed: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => zarPage()),
+                  MaterialPageRoute(builder: (context) => ZarPage()),
                 );
               },
             ),
             IconButton(
-              icon: Icon(Icons.shopping_bag),
+              icon: const Icon(Icons.shopping_cart),
               onPressed: () {
                 Navigator.push(
                   context,
@@ -305,25 +259,30 @@ class _HomepageState extends State<HomePage>
                 );
               },
             ),
-            IconButton(
-              icon: Icon(Icons.person),
-              onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => ProfilePage()),
-                );
-              },
+            Column(
+            children: [
+              IconButton(
+                icon: const Icon(Icons.account_box),
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => ProfilePage()),
+                  );
+                },
+              ),
+              Text(
+                'Profile',
+                style: TextStyle(fontSize: 12),
+                ),
+             ],
             ),
           ],
         ),
       ),
     );
-
-    
-
   }
 
-    List<Widget> buildDeals(){
+  List<Widget> buildDeals() {
     List<Widget> list = [];
     for (var i = 0; i < cars.length; i++) {
       list.add(
@@ -334,8 +293,8 @@ class _HomepageState extends State<HomePage>
               MaterialPageRoute(builder: (context) => BookCar(car: cars[i])),
             );
           },
-          child: buildCar(cars[i], i)
-        )
+          child: buildCar(cars[i], i),
+        ),
       );
     }
     return list;
